@@ -2,9 +2,10 @@
 
 基于 [VPet-Simulator](https://github.com/LorisYounworker/VPet) 的 AI 伴侣插件，使用 **GLM-4.7** 大模型驱动，让桌面宠物不再只是“会动的小人”，而是**会聊天、会撒娇、会记仇、会发红包**的超级 AI 伴侣。
 
-![和桌宠联动的 AI 聊天窗口（好感度与心情系统）](figures/Fig2.png)
-
-![红包互动与限时陪玩示例](figures/Fig1.png)
+<p align="center">
+  <img src="figures/Fig2.png" alt="和桌宠联动的 AI 聊天窗口（好感度与心情系统）" width="49%" />
+  <img src="figures/Fig1.png" alt="红包互动与限时陪玩示例" width="49%" />
+</p>
 
 ---
 
