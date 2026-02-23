@@ -1,6 +1,6 @@
-# VPet-AIGF  AI 女朋友插件
+# AIPet (VPet-AIGF) 插件
 
-基于 [VPet-Simulator](https://github.com/LorisYounworker/VPet) 的 AI 伴侣插件，使用 **GLM-4.7.7** 大模型驱动，让桌面宠物不再只是“会动的小人”，而是**会聊天、会撒娇、会记仇、会发红包**的超级 AI 伴侣。
+基于 [VPet-Simulator](https://github.com/LorisYounworker/VPet) 的 AI 伴侣插件，使用 **GLM-4.7** 大模型驱动，让桌面宠物不再只是“会动的小人”，而是**会聊天、会撒娇、会记仇、会发红包**的超级 AI 伴侣。
 
 ---
 
