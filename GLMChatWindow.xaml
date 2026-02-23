@@ -1,0 +1,148 @@
+<Window x:Class="VPet_AIGF.GLMChatWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:VPet_AIGF"
+        Title="和宝贝聊天" Height="500" Width="500"
+        WindowStartupLocation="CenterScreen"
+        Topmost="True"
+        ShowInTaskbar="False"
+        ResizeMode="CanResizeWithGrip"
+        Background="#FFF0F0F5"
+        PreviewKeyDown="Window_PreviewKeyDown">
+    <Window.Resources>
+        <local:NullToVisibilityConverter x:Key="NullToVisibilityConverter" />
+        <local:StringNullOrEmptyToVisibilityConverter x:Key="StringNullOrEmptyToVisibilityConverter" />
+    </Window.Resources>
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 顶部标题栏 -->
+        <Border Grid.Row="0" Background="#FFE8E0F0" CornerRadius="6" Padding="10,6" Margin="0,0,0,4">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock x:Name="tbTitle" Text="💕 和宝贝聊天" FontSize="16" FontWeight="Bold"
+                           Foreground="#FF6B4C9A" VerticalAlignment="Center"
+                           MouseLeftButtonDown="tbTitle_MouseLeftButtonDown" Cursor="Hand" />
+                <Button Grid.Column="1" Content="↩ 回滚" FontSize="12" Padding="8,2"
+                        Click="Rollback_Click" Background="Transparent" BorderThickness="0"
+                        Foreground="#FF7A8FB0" Cursor="Hand"/>
+                <Button Grid.Column="2" Content="🗑 清空" FontSize="12" Padding="8,2" 
+                        Click="ClearHistory_Click" Background="Transparent" BorderThickness="0"
+                        Foreground="#FF9080A0" Cursor="Hand"/>
+                <Button Grid.Column="3" x:Name="btnVoiceEnroll" Content="🎤" FontSize="12" Padding="8,2"
+                        Click="BtnVoiceEnroll_Click" Background="Transparent" BorderThickness="0"
+                        Foreground="#FF9080A0" Cursor="Hand" ToolTip="声纹注册（只允许你唤醒宠物）"/>
+            </Grid>
+        </Border>
+
+        <!-- 状态栏 -->
+        <Border Grid.Row="1" Background="#FFF5F0FF" CornerRadius="4" Padding="8,4" Margin="0,0,0,4"
+                BorderBrush="#FFDDCCEE" BorderThickness="1">
+            <TextBlock x:Name="tbStatus" Text="加载中..." FontSize="11" Foreground="#FF8060A0"
+                       TextAlignment="Center" TextWrapping="Wrap"/>
+        </Border>
+
+        <!-- 图片预览区 -->
+        <Border x:Name="previewPanel" Grid.Row="2" Background="#FFF9F7FF" CornerRadius="6" BorderBrush="#FFD8CCF5" BorderThickness="1"
+                Padding="8" Margin="0,0,0,6" Visibility="Collapsed">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <Border Grid.Column="0" Width="80" Height="80" CornerRadius="6" Background="#FFEAE3F9" Margin="0,0,8,0">
+                    <Image x:Name="imgPreview" Stretch="UniformToFill" />
+                </Border>
+                <StackPanel Grid.Column="1" VerticalAlignment="Center">
+                    <TextBlock x:Name="tbPreviewName" FontWeight="Bold" Foreground="#FF6B4C9A" TextWrapping="Wrap" />
+                    <TextBlock Text="将在发送时与下方文本一起提交" FontSize="12" Foreground="#FF8A78B0" />
+                </StackPanel>
+                <Button Grid.Column="2" Content="✕" Width="28" Height="28" Margin="8,0,0,0" Click="ClearPreview_Click"
+                        Background="#FFE8DFF9" BorderBrush="#FFBFA7F2" BorderThickness="1" Cursor="Hand" ToolTip="移除图片"/>
+            </Grid>
+        </Border>
+
+        <!-- 聊天记录区 -->
+        <Border Grid.Row="3" Background="White" CornerRadius="6" BorderBrush="#FFDDDDEE" BorderThickness="1"
+                Margin="0,0,0,6">
+            <ScrollViewer x:Name="svChat" VerticalScrollBarVisibility="Auto" Padding="6">
+                <ItemsControl x:Name="icMessages">
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel HorizontalAlignment="{Binding Alignment}" MaxWidth="300" Margin="2,3">
+                                <TextBlock Text="{Binding Timestamp}" FontSize="10" Foreground="#FF9999AA"
+                                           HorizontalAlignment="{Binding Alignment}" Margin="4,0,4,1"/>
+                                <Border Padding="8,5" CornerRadius="8"
+                                        Background="{Binding Background}">
+                                    <StackPanel>
+                                        <Image Source="{Binding Image}" MaxWidth="240" MaxHeight="180" Stretch="Uniform"
+                                               Margin="0,0,0,4" Visibility="{Binding Image, Converter={StaticResource NullToVisibilityConverter}}"/>
+                                        <TextBox Text="{Binding Text}" TextWrapping="Wrap" FontSize="14"
+                                                 Foreground="{Binding Foreground}"
+                                                 Background="Transparent" BorderThickness="0"
+                                                 IsReadOnly="True" IsReadOnlyCaretVisible="False"
+                                                 Cursor="Arrow" Visibility="{Binding Text, Converter={StaticResource StringNullOrEmptyToVisibilityConverter}}"/>
+                                    </StackPanel>
+                                </Border>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+
+        <!-- 输入区 -->
+        <Grid Grid.Row="4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btnRedPacket" Grid.Column="0" Content="🧧" FontSize="16" Padding="6,4"
+                    Margin="0,0,4,0" Click="RedPacket_Click"
+                    Background="#FFFFE0E0" BorderThickness="1" BorderBrush="#FFFF9999"
+                    Cursor="Hand" ToolTip="发红包"/>
+            <Button x:Name="btnSendImage" Grid.Column="1" Content="🖼" FontSize="16" Padding="6,4"
+                    Margin="0,0,4,0" Click="SendImage_Click"
+                    Background="#FFE7F3FF" BorderThickness="1" BorderBrush="#FF9BC7F2"
+                    Cursor="Hand" ToolTip="发送图片"/>
+            <!-- 录音指示器：点击可停止录音 -->
+            <Border x:Name="recordingIndicator" Grid.Column="2" Visibility="Collapsed"
+                    Background="#30FF0000" BorderBrush="#FFCC0000" BorderThickness="1"
+                    CornerRadius="10" Padding="6,3" Margin="0,0,4,0"
+                    VerticalAlignment="Center" MaxWidth="160" Cursor="Hand"
+                    MouseLeftButtonDown="RecordingIndicator_Click"
+                    ToolTip="点击停止录音">
+                <StackPanel Orientation="Horizontal">
+                    <Ellipse x:Name="recordingDot" Width="10" Height="10" Fill="Red" Margin="0,0,4,0"/>
+                    <TextBlock x:Name="tbRecordingHint" Text="录音中" FontSize="11"
+                               Foreground="#FFCC0000" VerticalAlignment="Center"
+                               TextTrimming="CharacterEllipsis"/>
+                </StackPanel>
+            </Border>
+            <TextBox x:Name="tbInput" Grid.Column="3" FontSize="14" Padding="8,6"
+                     AcceptsReturn="False" TextWrapping="Wrap"
+                     VerticalContentAlignment="Center"
+                     PreviewKeyDown="tbInput_KeyDown"
+                     InputMethod.IsInputMethodEnabled="True"/>
+            <Button x:Name="btnSend" Grid.Column="4" Content="发送" FontSize="14" Padding="14,6"
+                    Margin="6,0,0,0" Click="BtnSend_Click" 
+                    Background="#FF9B7FCF" Foreground="White" BorderThickness="0"
+                    Cursor="Hand"/>
+        </Grid>
+    </Grid>
+</Window>

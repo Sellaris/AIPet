@@ -1,0 +1,242 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\VPET_GF\\VPet-AIGF\\VPet.Plugin.AIGF.csproj": {}
+  },
+  "projects": {
+    "D:\\VPET_GF\\VPet-AIGF\\VPet.Plugin.AIGF.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\VPET_GF\\VPet-AIGF\\VPet.Plugin.AIGF.csproj",
+        "projectName": "VPet.Plugin.AIGF",
+        "projectPath": "D:\\VPET_GF\\VPet-AIGF\\VPet.Plugin.AIGF.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\VPET_GF\\VPet-AIGF\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "D:\\VPET_GF\\VPet-Simulator.Core\\VPet-Simulator.Core.csproj": {
+                "projectPath": "D:\\VPET_GF\\VPet-Simulator.Core\\VPet-Simulator.Core.csproj"
+              },
+              "D:\\VPET_GF\\VPet-Simulator.Windows.Interface\\VPet-Simulator.Windows.Interface.csproj": {
+                "projectPath": "D:\\VPET_GF\\VPet-Simulator.Windows.Interface\\VPet-Simulator.Windows.Interface.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.417/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\VPET_GF\\VPet-Simulator.Core\\VPet-Simulator.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\VPET_GF\\VPet-Simulator.Core\\VPet-Simulator.Core.csproj",
+        "projectName": "VPet-Simulator.Core",
+        "projectPath": "D:\\VPET_GF\\VPet-Simulator.Core\\VPet-Simulator.Core.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\VPET_GF\\VPet-Simulator.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "LinePutScript": {
+              "target": "Package",
+              "version": "[1.11.9, )"
+            },
+            "LinePutScript.Localization.WPF": {
+              "target": "Package",
+              "version": "[1.0.7, )"
+            },
+            "Panuon.WPF": {
+              "target": "Package",
+              "version": "[1.1.3, )"
+            },
+            "Panuon.WPF.UI": {
+              "target": "Package",
+              "version": "[1.2.4.10, )"
+            },
+            "SkiaSharp": {
+              "target": "Package",
+              "version": "[3.116.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.417/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\VPET_GF\\VPet-Simulator.Windows.Interface\\VPet-Simulator.Windows.Interface.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\VPET_GF\\VPet-Simulator.Windows.Interface\\VPet-Simulator.Windows.Interface.csproj",
+        "projectName": "VPet-Simulator.Windows.Interface",
+        "projectPath": "D:\\VPET_GF\\VPet-Simulator.Windows.Interface\\VPet-Simulator.Windows.Interface.csproj",
+        "packagesPath": "C:\\Users\\Administrator\\.nuget\\packages\\",
+        "outputPath": "D:\\VPET_GF\\VPet-Simulator.Windows.Interface\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Administrator\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "D:\\VPET_GF\\VPet-Simulator.Core\\VPet-Simulator.Core.csproj": {
+                "projectPath": "D:\\VPET_GF\\VPet-Simulator.Core\\VPet-Simulator.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "LinePutScript": {
+              "target": "Package",
+              "version": "[1.11.9, )"
+            },
+            "LinePutScript.Localization.WPF": {
+              "target": "Package",
+              "version": "[1.0.7, )"
+            },
+            "Panuon.WPF": {
+              "target": "Package",
+              "version": "[1.1.3, )"
+            },
+            "Panuon.WPF.UI": {
+              "target": "Package",
+              "version": "[1.2.4.10, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.417/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

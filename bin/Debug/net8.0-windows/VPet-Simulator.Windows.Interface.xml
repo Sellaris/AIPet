@@ -1,0 +1,2586 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>VPet-Simulator.Windows.Interface</name>
+    </assembly>
+    <members>
+        <member name="T:VPet_Simulator.Windows.Interface.ActivityLog">
+            <summary>
+            活动日志: eg: 工作, 事件等
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ActivityLog.#ctor">
+            <summary>
+            活动日志: eg: 工作, 事件等
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ActivityLog.#ctor(System.String,System.Boolean,System.String[])">
+            <summary>
+            活动日志: eg: 工作, 事件等
+            </summary>
+            <param name="type">日志类型</param>
+            <param name="isDebug">是否是调试日志 (仅在调试模式下显示给玩家)</param>
+            <param name="description">日志详细信息</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ActivityLog.#ctor(System.String,System.String[])">
+            <summary>
+            活动日志(非调试日志): eg: 工作, 事件等
+            </summary>
+            <param name="type">日志类型</param>
+            <param name="description">日志详细信息</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ActivityLog.Time">
+            <summary>
+            日志时间
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ActivityLog.Type">
+            <summary>
+            日志类型
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ActivityLog.Description">
+            <summary>
+            日志详细信息, `|`分割
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ActivityLog.IsDebug">
+            <summary>
+            是否是调试日志 (仅在调试模式下显示给玩家)
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ActivityLog.ToString(VPet_Simulator.Core.Main)">
+            <summary>
+            转换成玩家可读的字符串
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ExtensionFunction.Get(VPet_Simulator.Core.GraphHelper.Work)">
+            <summary>
+            工作获取效率
+            </summary>
+            <param name="work">工作</param>
+            <returns>工作获取效率</returns>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ExtensionFunction.MathPow(System.Double,System.Double)">
+            <summary>
+            求幂(带符号)
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ExtensionFunction.Spend(VPet_Simulator.Core.GraphHelper.Work)">
+            <summary>
+            工作花费效率
+            </summary>
+            <param name="work">工作</param>
+            <returns>工作花费效率</returns>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ExtensionFunction.IsOverLoad(VPet_Simulator.Core.GraphHelper.Work)">
+            <summary>
+            判断这个工作是否超模
+            </summary>
+            <param name="work">工作</param>
+            <returns>是否超模</returns>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ExtensionFunction.FixOverLoad(VPet_Simulator.Core.GraphHelper.Work)">
+            <summary>
+            为所有工作进行1.2倍效率修正
+            </summary>
+            <param name="work"></param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ExtensionFunction.Double(VPet_Simulator.Core.GraphHelper.Work,System.Int32)">
+            <summary>
+            将工作的属性值翻倍
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ExtensionFunction.ValueToPlusPlus(System.Double,System.Double,System.Int32)">
+            <summary>
+            把值变成++
+            </summary>
+            <param name="value">值</param>
+            <param name="magnification">倍率</param>
+            <returns></returns>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ExtensionFunction.StartURL(System.String)">
+            <summary>
+            启动URL
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ExtensionFunction.EatFood(VPet_Simulator.Core.IGameSave,VPet_Simulator.Core.IFood,System.Double)">
+            <summary>
+            吃食物 附带倍率
+            </summary>
+            <param name="save">存档</param>
+            <param name="food">食物</param>
+            <param name="buff">默认1倍</param>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ExtensionValue">
+            <summary>
+            扩展值
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.ExtensionValue.BaseDirectory">
+            <summary>
+            当前运行目录
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ExtensionValue.GetMODStorage(System.String)">
+            <summary>
+            获取MOD存储目录 (会自动创建/Steam云同步)
+            但是还是建议以LPS形式存在Setting/Save里 不保证完整可靠性(可能会因为切换电脑等导致数据丢失)
+            </summary>
+            <param name="modName">MOD名字</param>
+            <returns>目录地址</returns>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.GameSave_v2">
+            <summary>
+            游戏存档 最新版
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_v2.#ctor(System.String)">
+            <summary>
+            新存档
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_v2.#ctor(LinePutScript.ILPS,VPet_Simulator.Windows.Interface.Statistics,VPet_Simulator.Windows.Interface.GameSave_VPet,LinePutScript.ILPS)">
+            <summary>
+            读存档, 带入老数据
+            </summary>
+            <param name="lps">数据</param>
+            <param name="oldStatistics">老统计</param>
+            <param name="oldGameSave">老存档</param>
+            <param name="olddata">老数据</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_v2.#ctor(LinePutScript.ILPS,VPet_Simulator.Windows.Interface.GameSave_v2)">
+            <summary>
+            读存档, 带入老存档
+            </summary>
+            <param name="lps"></param>
+            <param name="oldSave"></param>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.GameSave_v2.Data">
+            <summary>
+            游戏相关数据
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.GameSave_v2.GameSave">
+            <summary>
+            游戏存档
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.GameSave_v2.Statistics">
+            <summary>
+            统计
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_v2.HashCheck">
+            <summary>
+            Hash检查
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_v2.HashCheckOff">
+            <summary>
+            关闭该玩家的HashCheck检查
+            请使用imw中的HashCheckOff
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.GameSave_VPet">
+            <summary>
+            游戏存档 桌宠桌面端订制版本
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.Name">
+            <summary>
+            宠物名字
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.HostName">
+            <summary>
+            主人称呼
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.Money">
+            <summary>
+            金钱
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.Level">
+            <summary>
+            等级
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.LevelMax">
+            <summary>
+            等级上限
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.Exp">
+            <summary>
+            经验值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.LevelUpEventArgs.IsLevelUp">
+            <summary>
+            是否升级
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.LevelUpEventArgs.IsLevelMaxUp">
+            <summary>
+            是否升级指上限
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.LevelUpEventArgs.BeforeLevel">
+            <summary>
+            之前的等级
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.LevelUpEventArgs.BeforeLevelMax">
+            <summary>
+            之前的等级上限
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_VPet.TotalExpGained">
+            <summary>
+            玩家总共获得的经验值数量
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_VPet.LevelUpNeed">
+            <summary>
+            升级所需经验值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.Strength">
+            <summary>
+            体力 0-100
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.StoreStrength">
+            <summary>
+            待补充的体力,随着时间缓慢加给桌宠
+            </summary>//让游戏更有游戏性
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.ChangeStrength">
+            <summary>
+            变化 体力
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.StrengthFood">
+            <summary>
+            饱腹度
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.StoreStrengthFood">
+            <summary>
+            待补充的饱腹度,随着时间缓慢加给桌宠
+            </summary>//让游戏更有游戏性
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.ChangeStrengthFood">
+            <summary>
+            变化 食物
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.StrengthDrink">
+            <summary>
+            口渴度
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.StoreStrengthDrink">
+            <summary>
+            待补充的口渴度,随着时间缓慢加给桌宠
+            </summary>//让游戏更有游戏性
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.ChangeStrengthDrink">
+            <summary>
+            变化 口渴度
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.Feeling">
+            <summary>
+            心情
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.ChangeFeeling">
+            <summary>
+            变化 心情
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.Health">
+            <summary>
+            健康(生病)(隐藏)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.Likability">
+            <summary>
+            好感度(隐藏)(累加值)
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_VPet.CleanChange">
+            <summary>
+            清除变化
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_VPet.StoreTake">
+            <summary>
+            取回被储存的体力
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_VPet.EatFood(VPet_Simulator.Core.IFood)">
+            <summary>
+            吃食物
+            </summary>
+            <param name="food">食物类</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.Mode">
+            <summary>
+            宠物当前状态
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.GameSave_VPet.ExpBonus">
+            <summary>
+            经验值加成 TODO
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_VPet.CalMode">
+            <summary>
+            计算宠物当前状态
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_VPet.#ctor(System.String)">
+            <summary>
+            新游戏
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_VPet.#ctor">
+            <summary>
+            读档
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_VPet.Load(LinePutScript.ILine)">
+            <summary>
+            读档
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.GameSave_VPet.ToLine">
+            <summary>
+            存档
+            </summary>
+            <returns>存档行</returns>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.IMainWindow">
+            <summary>
+            游戏主窗体
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.PrefixSave">
+            <summary>
+            存档前缀, 用于多开游戏, 为空时使用默认存档, 不为空时前缀的前缀一般为'-'
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Args">
+            <summary>
+            启动参数
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.IsSteamUser">
+            <summary>
+            是否为Steam用户
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.SteamID">
+            <summary>
+            SteamID
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.SteamAuthorID">
+            <summary>
+            SteamAccountId
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Set">
+            <summary>
+            游戏设置
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Pets">
+            <summary>
+            宠物加载器列表
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.TalkAPI">
+            <summary>
+            所有可用聊天API
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.TalkBoxCurr">
+            <summary>
+            当前正在使用的TalkBox
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.TalkAPIIndex">
+            <summary>
+            当前使用TalkBox的编号
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Core">
+            <summary>
+            桌宠数据核心
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Main">
+            <summary>
+            桌宠主要部件
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.version">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Version">
+            <summary>
+            版本号
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.lastclicktime">
+            <summary>
+            上次点击时间 (Tick)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Plugins">
+            <summary>
+            所有三方插件
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Foods">
+            <summary>
+            所有食物
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.LowFoodText">
+            <summary>
+            需要食物时会说的话
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.LowDrinkText">
+            <summary>
+            需要饮料时会说的话
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.ClickTexts">
+            <summary>
+            点击时会说的话
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.SelectTexts">
+            <summary>
+            选择说的话
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.GetClickText">
+            <summary>
+            获得自动点击的文本
+            </summary>
+            <returns>说话内容</returns>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Photos">
+            <summary>
+            所有照片
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.ImageSources">
+            <summary>
+            图片资源
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.FileSources">
+            <summary>
+            文件资源, 储存的为文件路径 : 可以给代码插件MOD用
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.SetZoomLevel(System.Double)">
+            <summary>
+            设置游戏缩放倍率
+            </summary>
+            <param name="zl">缩放倍率 范围0.1-10</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.Save">
+            <summary>
+            保存设置
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.LoadDIY">
+            <summary>
+            加载DIY内容
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.ShowSetting(System.Int32)">
+            <summary>
+            显示设置页面
+            </summary>
+            <param name="page">设置页</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.ShowBetterBuy(VPet_Simulator.Windows.Interface.Food.FoodType)">
+            <summary>
+            显示更好买页面
+            </summary>
+            <param name="type">食物类型</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.ShowGallery">
+            <summary>
+            显示照片图库
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.Close">
+            <summary>
+            关闭桌宠
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.Restart">
+            <summary>
+            重启桌宠
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.MouseHitThrough">
+            <summary>
+            鼠标穿透
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.HashCheck">
+            <summary>
+            存档 Hash检查 是否通过
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.AudioPlayingVolume">
+            <summary>
+            获得当前系统音乐播放音量
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.CloseConfirm">
+            <summary>
+            关闭指示器,默认为true
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.HashCheckOff">
+            <summary>
+            关闭该玩家的HashCheck检查
+            如果你的mod属于作弊mod/有作弊内容,请在作弊前调用这个方法
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Windows">
+            <summary>
+            游戏打开过的窗口, 会在退出时统一调用退出
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.GameSavesData">
+            <summary>
+            游戏存档数据
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.MGHost">
+            <summary>
+            主窗体 Grid
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.PetGrid">
+            <summary>
+            主窗体 Pet Grid
+            </summary>
+        </member>
+        <member name="E:VPet_Simulator.Windows.Interface.IMainWindow.MutiPlayerHandle">
+            <summary>
+            当创建/加入新的多人联机窗口(访客表)时触发
+            如果你想写联机功能,请监听这个事件
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.MutiPlayerStart(VPet_Simulator.Windows.Interface.IMPWindows)">
+            <summary>
+            当创建/加入新的多人联机窗口(访客表)时触发
+            用于给MOD定义自己的联机窗口时准备的, 一般联机功能不需要调用这个
+            </summary>
+            <param name="mp"></param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.DisplayFoodAnimation(System.String,System.Windows.Media.ImageSource)">
+            <summary>
+            显示吃东西(夹层)动画
+            </summary>
+            <param name="graphName">夹层动画名</param>
+            <param name="imageSource">被夹在中间的图片</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.TakeItem(VPet_Simulator.Windows.Interface.Food)">
+            <summary>
+            使用/食用物品 (更新:不扣钱) (不包括显示动画)
+            </summary>
+            <param name="item">物品</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.ShowInputBox(System.String,System.String,System.String,System.Action{System.String},System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            显示输入框
+            </summary>
+            <param name="title">标题</param>
+            <param name="text">文本</param>
+            <param name="defaulttext">默认文本</param>
+            <param name="ENDAction">结束事件</param>
+            <param name="AllowMutiLine">是否允许多行输入</param>
+            <param name="TextCenter">文本居中</param>
+            <param name="CanHide">能否隐藏</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Dispatcher">
+            <summary>
+            UI线程调用位置
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.ModInfo">
+            <summary>
+            获取当前所有MOD信息
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.OnModInfo">
+            <summary>
+            获取当前所有已启用的MOD信息
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.MODPath">
+            <summary>
+            所有MOD文件位置
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.ScheduleTask">
+            <summary>
+            日程表
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.SchedulePackage">
+            <summary>
+            所有可用套餐
+            </summary>
+        </member>
+        <member name="E:VPet_Simulator.Windows.Interface.IMainWindow.Event_TakeItem">
+            <summary>
+            事件:吃东西
+            </summary>
+        </member>
+        <member name="E:VPet_Simulator.Windows.Interface.IMainWindow.Event_NewDay">
+            <summary>
+            事件:新的一天
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.DynamicResources">
+            <summary>
+            动态资源, 用于给插件MOD存储共享的数据
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.GenerateAuthKey">
+            <summary>
+            生成授权码(仅用于LB相关服务验证)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.TakeItemHandle(VPet_Simulator.Windows.Interface.Food,System.Int32,System.String)">
+            <summary>
+            呼叫事件 Event_TakeItemHandle
+            </summary>
+            <param name="item">物品</param>
+            <param name="count">个数</param>
+            <param name="from">来源</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.ActivityLogs">
+            <summary>
+            活动日志 不会保存
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMainWindow.Items">
+            <summary>
+            物品栏 桌宠有的物品
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMainWindow.ItemsAdd(VPet_Simulator.Windows.Interface.Item)">
+            <summary>
+            添加物品到物品栏 (自动合并)
+            </summary>
+            <param name="item">物品</param>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ISetting">
+            <summary>
+            设置方法接口
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.ZoomLevel">
+            <summary>
+            获取当前缩放倍率
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ISetting.SetZoomLevel(System.Double)">
+            <summary>
+            设置缩放倍率
+            </summary>
+            <param name="level">缩放等级</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.VoiceVolume">
+            <summary>
+            获取当前播放声音的大小
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ISetting.SetVoiceVolume(System.Double)">
+            <summary>
+            设置播放声音的大小
+            </summary>
+            <param name="volume">声音大小</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.AutoSaveInterval">
+            <summary>
+            获取当前自动保存的频率（分钟）
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ISetting.SetAutoSaveInterval(System.Int32)">
+            <summary>
+            设置自动保存的频率（分钟）
+            </summary>
+            <param name="interval">保存间隔</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.BackupSaveMaxNum">
+            <summary>
+            获取或设置备份保存的最大数量
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.TopMost">
+            <summary>
+            获取当前是否置于顶层
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ISetting.SetTopMost(System.Boolean)">
+            <summary>
+            设置是否置于顶层
+            </summary>
+            <param name="topMost">是否置顶</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.LastCacheDate">
+            <summary>
+            获取或设置上次清理缓存的日期
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.Language">
+            <summary>
+            获取当前语言
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ISetting.SetLanguage(System.String)">
+            <summary>
+            设置语言
+            </summary>
+            <param name="language">语言代码</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.PressLength">
+            <summary>
+            获取或设置按多久视为长按（毫秒）
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.InteractionCycle">
+            <summary>
+            获取或设置互动周期
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.LogicInterval">
+            <summary>
+            获取当前计算间隔（秒）
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ISetting.SetLogicInterval(System.Double)">
+            <summary>
+            设置计算间隔（秒）
+            </summary>
+            <param name="interval">计算间隔</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.AllowMove">
+            <summary>
+            获取当前是否允许移动
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ISetting.SetAllowMove(System.Boolean)">
+            <summary>
+            设置是否允许移动
+            </summary>
+            <param name="allowMove">是否允许移动</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.SmartMove">
+            <summary>
+            获取当前是否启用智能移动
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ISetting.SetSmartMove(System.Boolean)">
+            <summary>
+            设置是否启用智能移动
+            </summary>
+            <param name="smartMove">是否启用智能移动</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.EnableFunction">
+            <summary>
+            获取当前是否启用计算等数据功能
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ISetting.SetEnableFunction(System.Boolean)">
+            <summary>
+            设置是否启用计算等数据功能
+            </summary>
+            <param name="enableFunction">是否启用功能</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.SmartMoveInterval">
+            <summary>
+            获取当前智能移动周期（秒）
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ISetting.SetSmartMoveInterval(System.Int32)">
+            <summary>
+            设置智能移动周期（秒）
+            </summary>
+            <param name="interval">智能移动周期</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.MessageBarOutside">
+            <summary>
+            获取或设置消息框是否外置
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.StartRecordLast">
+            <summary>
+            获取当前是否记录游戏退出位置
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.StartRecordLastPoint">
+            <summary>
+            获取上次退出位置
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.StartRecordPoint">
+            <summary>
+            获取或设置桌宠启动的位置
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.MusicCatch">
+            <summary>
+            获取或设置当实时播放音量达到该值时运行音乐动作
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.MusicMax">
+            <summary>
+            获取或设置当实时播放音量达到该值时运行特殊音乐动作
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.Resolution">
+            <summary>
+            获取或设置桌宠图形渲染的分辨率，越高图形越清晰，重启后生效
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.AutoBuy">
+            <summary>
+            获取或设置是否允许桌宠自动购买食品
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.AutoGift">
+            <summary>
+            获取或设置是否允许桌宠自动购买礼物
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.HideFromTaskControl">
+            <summary>
+            获取或设置在任务切换器(Alt+Tab)中是否隐藏窗口，重启后生效
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.Item(System.String)">
+            <summary>
+            读写自定义游戏设置(给mod准备的接口)
+            </summary>
+            <param name="lineName">游戏设置</param>
+            <returns>如果找到相同名称的第一个Line,则为该Line; 否则为新建的相同名称Line</returns>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.MPNOTouch">
+            <summary>
+            联机允许交互
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.PetGraph">
+            <summary>
+            桌宠皮肤(不一定是这个,如果找不到则为默认第0个)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.DeBug">
+            <summary>
+            开发者模式
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ISetting.PetName">
+            <summary>
+            宠物名字
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.MainPlugin">
+            <summary>
+            这是插件的主体内容 请继承这个类
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.MainPlugin.PluginName">
+            <summary>
+            MOD名称 通过插件名称定位插件, 需和MOD名称一致
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MainPlugin.MW">
+            <summary>
+            主窗体, 主程序提供的各种功能和设置等 大部分参数和调用均在这里
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.MainPlugin.#ctor(VPet_Simulator.Windows.Interface.IMainWindow)">
+            <summary>
+            MOD插件初始化
+            </summary>
+            <param name="mainwin">主窗体</param>
+            请不要加载游戏和玩家数据,仅用作初始化. 注意:此时没有UI线程
+            加载数据(CORE)/游戏(SAVE),请使用 LoadPlugin
+            获取/设置加载完毕的数据,请使用 GameLoaded
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.MainPlugin.LoadPlugin">
+            <summary>
+            初始化程序+读取存档
+            </summary>
+            例:添加自己的Tick到 mw.Main.EventTimer
+            例:创建使用UI的桌面控件
+            例:添加自定义物品类型创建方法到 Item.Creators
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.MainPlugin.GameLoaded">
+            <summary>
+            游戏加载完毕的状态. 可以实现对已加载内容的修改
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.MainPlugin.EndGame">
+            <summary>
+            游戏结束 (可以保存或清空等,不过保存有专门的Save())
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.MainPlugin.Save">
+            <summary>
+            储存游戏 (可以写 GameSave.Other 储存设置和数据等)
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.MainPlugin.Setting">
+            <summary>
+            打开代码插件设置
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.MainPlugin.LoadDIY">
+            <summary>
+            重载DIY按钮, 如需添加自定义按钮可在此处添加
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ClickText">
+            <summary>
+            点击桌宠时触发的乱说话
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ClickText.Working">
+            <summary>
+            指定干活时说, 空为任意, sleep 为睡觉时
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ClickText.DayTime">
+            <summary>
+            日期区间
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ClickText.dayTime">
+            <summary>
+            当前时间
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ClickText.DaiTime">
+            <summary>
+            日期区间
+            </summary>      
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ClickText.State">
+            <summary>
+            工作状态
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ClickText.CheckState(VPet_Simulator.Core.Main)">
+            <summary>
+            检查部分状态是否满足需求
+            </summary>之所以不是全部的,是因为挨个取效率太差了      
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.Food.FoodType">
+            <summary>
+            食物类型
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Food.FoodType.Food">
+            <summary>
+            食物 (默认)
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Food.FoodType.Star">
+            <summary>
+            收藏 (自定义)
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Food.FoodType.Meal">
+            <summary>
+            正餐
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Food.FoodType.Snack">
+            <summary>
+            零食
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Food.FoodType.Drink">
+            <summary>
+            饮料
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Food.FoodType.Functional">
+            <summary>
+            功能性
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Food.FoodType.Drug">
+            <summary>
+            药品
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Food.FoodType.Gift">
+            <summary>
+            礼品
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Food.Type">
+            <summary>
+            食物类型
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Food.Description">
+            <summary>
+            描述(ToBetterBuy)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Food.Star">
+            <summary>
+            是否已收藏
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Food.RealPrice">
+            <summary>
+            当前物品推荐价格
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Food.IsOverLoad">
+            <summary>
+            该食物是否超模
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Food.LoadImageSource(VPet_Simulator.Windows.Interface.IMainWindow)">
+            <summary>
+            加载物品图片
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Food.Graph">
+            <summary>
+            食用时显示的动画
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Food.GetGraph">
+            <summary>
+            获取食用时显示的动画
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Food.Clone">
+            <summary>
+            克隆食物对象
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ICheckText">
+            <summary>
+            所有可以检查的文本格式
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.Mode">
+            <summary>
+            需求状态模式
+            </summary>      
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ICheckText.ModeType">
+            <summary>
+            宠物状态模式
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.ICheckText.ModeType.Happy">
+            <summary>
+            高兴
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.ICheckText.ModeType.Nomal">
+            <summary>
+            普通
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.ICheckText.ModeType.PoorCondition">
+            <summary>
+            状态不佳
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.ICheckText.ModeType.Ill">
+            <summary>
+            生病(躺床)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.LikeMin">
+            <summary>
+            好感度要求:最小值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.LikeMax">
+            <summary>
+            好感度要求:最大值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.HealthMin">
+            <summary>
+            健康度要求:最小值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.HealthMax">
+            <summary>
+            健康度要求:最大值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.LevelMin">
+            <summary>
+            等级要求:最小值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.LevelMax">
+            <summary>
+            等级要求:最大值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.MoneyMin">
+            <summary>
+            金钱要求:最小值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.MoneyMax">
+            <summary>
+            金钱要求:最大值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.FoodMin">
+            <summary>
+            食物要求:最小值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.FoodMax">
+            <summary>
+            食物要求:最大值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.DrinkMin">
+            <summary>
+            口渴要求:最小值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.DrinkMax">
+            <summary>
+            口渴要求:最大值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.FeelMin">
+            <summary>
+            心情要求:最小值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.FeelMax">
+            <summary>
+            心情要求:最大值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.StrengthMin">
+            <summary>
+            体力要求:最小值
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ICheckText.StrengthMax">
+            <summary>
+            体力要求:最大值
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ICheckText.CheckState(VPet_Simulator.Core.IGameSave)">
+            <summary>
+            检查部分状态是否满足需求
+            </summary>之所以不是全部的,是因为挨个取效率太差了
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ICheckText.CheckState(VPet_Simulator.Core.Main)">
+            <summary>
+            检查部分状态是否满足需求
+            </summary>之所以不是全部的,是因为挨个取效率太差了
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.IModInfo">
+            <summary>
+            模组信息接口
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IModInfo.Name">
+            <summary>
+            模组名称
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IModInfo.Author">
+            <summary>
+            模组作者
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IModInfo.AuthorID">
+            <summary>
+            如果是上传至Steam,则为SteamUserID
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IModInfo.ItemID">
+            <summary>
+            上传至Steam的ItemID
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IModInfo.Intro">
+            <summary>
+            介绍
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IModInfo.Path">
+            <summary>
+            模组路径
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IModInfo.GameVer">
+            <summary>
+            游戏版本
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IModInfo.Ver">
+            <summary>
+            模组版本
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IModInfo.Tag">
+            <summary>
+            模组标签
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.Item">
+            <summary>
+            物品 (这里的物品指的是能够在背包中查看和使用的物品)
+            </summary>
+            注: 物品的使用方法均需要代码插件手写, 在 imw.TakeItem 中实现
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Item.CreateItem(VPet_Simulator.Windows.Interface.IMainWindow,LinePutScript.ILine)">
+            <summary>
+            创建物品方法
+            </summary>
+            <param name="data">物品数据</param>
+            <returns>物品</returns>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Item.Creators">
+            <summary>
+            创建物品方法集合, 在这里添加自定义物品类型的创建方法 在LoadPlugin之后,GameLoaded之前. 请不要添加阻塞内容
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Item.UseAction">
+            <summary>
+            对应类型物品的使用方法 (物品/是否使用完成)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.Image">
+            <summary>
+            物品图片 (图片默认在 {itemtypes}/{Image or itemname}.png )
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Item.Use(VPet_Simulator.Windows.Interface.IMainWindow)">
+            <summary>
+            使用该物品
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Item.Consume(VPet_Simulator.Windows.Interface.IMainWindow,System.Int32)">
+            <summary>
+            消耗该物品, 如果物品数量小于等于0时则销毁物品(从背包中移除) (不会主动调用)
+            </summary>
+            <param name="count">消耗数量</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.Name">
+            <summary>
+            物品名字 (ID)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.TranslateName">
+            <summary>
+            物品名字 (翻译)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.ItemType">
+            <summary>
+            物品类型
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.Description">
+            <summary>
+            描述 (翻译后)
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Item.ItemTypes">
+            <summary>
+            支持自定义的物品类型列表 (记得进行翻译 eg: Item_Item => 物品)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.Price">
+            <summary>
+            物品价格
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.Desc">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.ImageSource">
+            <summary>
+            显示的图片 (图片默认在 {itemtypes}/{itemname}.png )
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.Count">
+            <summary>
+            物品个数
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.Data">
+            <summary>
+            其他数据, 用于给程序储存个性化数据用
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.CanUse">
+            <summary>
+            能否使用
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.Star">
+            <summary>
+            是否收藏了物品
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.IsSingle">
+            <summary>
+            是否为单个物品 (不可堆叠)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Item.Visibility">
+            <summary>
+            能否在背包中显示
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Item.LoadSource(VPet_Simulator.Windows.Interface.IMainWindow)">
+            <summary>
+            加载物品图片
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IText.Text">
+            <summary>
+            说话的内容
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IText.TranslateText">
+            <summary>
+            说话的内容 (翻译)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IText.Tag">
+            <summary>
+            文本内容标签
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IText.FindTag(System.String[])">
+            <summary>
+            查找是否符合内容标签
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IText.TranslateTextConvert(VPet_Simulator.Core.Main)">
+            <summary>
+            将文本转换成实际值
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IText.ConverText(System.String,VPet_Simulator.Core.Main)">
+            <summary>
+            将文本转换成实际值 (注意: 会和 Trainslate({0}) 冲突), 先 Trainslate, 再 Convert 最后再 Format
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.LowText">
+            <summary>
+            低状态自动说的话
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.LowText.ModeType">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.LowText.ModeType.H">
+            <summary>
+            高状态: 开心/普通
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.LowText.ModeType.L">
+            <summary>
+            低状态: 低状态/生病
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.LowText.Mode">
+            <summary>
+            状态
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.LowText.StrengthType">
+            <summary>
+            体力
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.LowText.StrengthType.L">
+            <summary>
+            一般口渴/饥饿
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.LowText.StrengthType.M">
+            <summary>
+            有点口渴/饥饿
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.LowText.StrengthType.S">
+            <summary>
+            非常口渴/饥饿
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.LowText.Strength">
+            <summary>
+            体力
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.LowText.LikeType">
+            <summary>
+            好感度要求
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.LowText.LikeType.N">
+            <summary>
+            不需要好感度
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.LowText.LikeType.S">
+            <summary>
+            低好感度需求
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.LowText.LikeType.M">
+            <summary>
+            中好感度需求
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.LowText.LikeType.L">
+            <summary>
+            高好感度
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.LowText.Like">
+            <summary>
+            好感度要求
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.Zip">
+            <summary>
+            图片所在ZIP
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.Path">
+            <summary>
+            图片所在位置
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.Photo.PhotoType">
+            <summary>
+            图片类型
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Photo.PhotoType.ALL">
+            <summary>
+            默认类型
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Photo.PhotoType.Illustration">
+            <summary>
+            插图 
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Photo.PhotoType.Thumbnail">
+            <summary>
+            小图 (表情包,头像等)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.Type">
+            <summary>
+            图片类型
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.Name">
+            <summary>
+            图片名字
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.TranslateName">
+            <summary>
+            图片名字 (翻译)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.Tags">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.TagsTrans">
+            <summary>
+            标签 (翻译)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.Description">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.Photo.UnlockCondition">
+            <summary>
+            解锁条件
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.LockString">
+            <summary>
+            解锁条件 (仅程序锁定显示)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.Lock">
+            <summary>
+            是否强制锁定不可解锁, 仅限于程序手动解锁
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.None">
+            <summary>
+            是否不需要任何条件直接解锁
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.SellPrice">
+            <summary>
+            可花钱解锁
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.SellBoth">
+            <summary>
+            是否要满足条件后才能花钱解锁
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.StatCheck">
+            <summary>
+            判断统计内容条件
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.Check(VPet_Simulator.Windows.Interface.GameSave_v2)">
+            <summary>
+            判断是否满足解锁条件 (不包括花钱)
+            </summary>
+            <param name="save">游戏存档</param>
+            <returns>是否满足解锁条件</returns>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.Level">
+            <summary>
+            需求等级
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.LevelMax">
+            <summary>
+            需求突破次数
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.Money">
+            <summary>
+            需求金钱(数量/并非消耗)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.Likability">
+            <summary>
+            需求好感度
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.Feeling">
+            <summary>
+            需求心情
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.Date">
+            <summary>
+            解锁需求日期
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.Time">
+            <summary>
+            解锁需求时间
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.DateOffset">
+            <summary>
+            日期偏移容错(天)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.TimeOffset">
+            <summary>
+            时间偏移容错(分钟)
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.HolidayType">
+            <summary>
+            节假日解锁
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.HolidayType.None">
+            <summary>
+            不启用
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.HolidayType.Mid_Autumn_Festival">
+            <summary>
+            中秋
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.HolidayType.Dragon_Boat_Festival">
+            <summary>
+            端午
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.HolidayType.New_Years_Day">
+            <summary>
+            新年
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.HolidayType.Spring_Festival">
+            <summary>
+            春节
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.HolidayType.Christmas">
+            <summary>
+            圣诞
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.HolidayType.Player_Birthday">
+            <summary>
+            生日(玩家)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.Holiday">
+            <summary>
+            节假日
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.CheckDate(System.DateTime)">
+            <summary>
+            检查日期是否符合
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.UnlockCondition.GetLunarDate(System.Int32,System.Int32)">
+            <summary>
+            检查农历日期偏差
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.UnlockAble">
+            <summary>
+            解锁条件
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.Photo.Info">
+            <summary>
+            玩家数据
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.PlayerInfo">
+            <summary>
+            玩家数据
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.IsStar">
+            <summary>
+            是否收藏
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Photo.IsUnlock">
+            <summary>
+            是否解锁
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.Unlock(VPet_Simulator.Windows.Interface.IMainWindow)">
+            <summary>
+            解锁这张图片
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.ConvertToThumbnail(System.Windows.Media.Imaging.BitmapImage,System.Int32,System.Int32)">
+            <summary>
+            创建缩略图 (以最小的为准)
+            </summary>   
+            <param name="originalImage">原图</param>
+            <param name="width">长度</param>
+            <param name="height">高度</param>
+            <returns></returns>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.ConvertToGrayScale(System.Windows.Media.Imaging.BitmapSource)">
+            <summary>
+            创建灰度图 (未解锁)
+            </summary>
+            <param name="originalImage">原图</param>
+            <returns></returns>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.GetImage(VPet_Simulator.Windows.Interface.IMainWindow)">
+            <summary>
+            获得当前图片图片
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.GetGifImage(VPet_Simulator.Windows.Interface.IMainWindow)">
+            <summary>
+            获取适用于GIF的图片
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.FilePath(System.String)">
+            <summary>
+            保存到文件夹时自动转换
+            </summary>
+            <param name="savedir">文件夹</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.FilePath">
+            <summary>
+            保存到文件夹时自动转换
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.SaveAs(VPet_Simulator.Windows.Interface.IMainWindow,System.String)">
+            <summary>
+            图片另存为文件
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Photo.CopyImageToClipboard(VPet_Simulator.Windows.Interface.IMainWindow)">
+            <summary>
+            复制图片到剪贴板
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.SelectText">
+            <summary>
+            供玩家选择说话的文本
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.SelectText.Choose">
+            <summary>
+            玩家选项名称
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.SelectText.TranslateChoose">
+            <summary>
+            玩家选项名称 (翻译)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.SelectText.Tags">
+            <summary>
+            标签
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.SelectText.ContainsTag(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            查看标签是否命中
+            </summary>
+            <param name="totag">跳转到标签</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.SelectText.ToTags">
+            <summary>
+            跳转到标签
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.IMPFriend">
+            <summary>
+            好友的宠物(图形)模块接口
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.LobbyID">
+            <summary>
+            访客表id
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.FriendID">
+            <summary>
+            好友id
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.IsMe">
+            <summary>
+             Stream: Returns true if this is the local user
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.IsFriend">
+            <summary>
+             Stream: Return true if this is a friend
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.IsBlocked">
+            <summary>
+            Stream: Returns true if you have this user blocked
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.IsPlayingThisGame">
+            <summary>
+            Stream: Return true if this user is playing the game we're running
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.IsOnline">
+            <summary>
+            Stream: Returns true if this friend is online
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.IsAway">
+            <summary>
+            Stream:  Returns true if this friend is marked as away
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.IsBusy">
+            <summary>
+            Stream: Returns true if this friend is marked as busy
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.IsSnoozing">
+            <summary>
+            Stream: Returns true if this friend is marked as snoozing
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.Name">
+            <summary>
+            Stream: 好友名称
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.SteamLevel">
+            <summary>
+            Stream: 好友等级
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.Avatar">
+            <summary>
+            Stream: 好友头像 (UI线程注意)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.Core">
+            <summary>
+            桌宠数据核心
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.ImageSources">
+            <summary>
+            图像资源集
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.SetPetGraph">
+            <summary>
+            当前宠物图形名称
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.Main">
+            <summary>
+            桌宠主要部件
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMPFriend.DisplayAuto(VPet_Simulator.Core.GraphInfo)">
+            <summary>
+            智能化显示后续过度动画
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMPFriend.DisplayGraph(VPet_Simulator.Core.GraphInfo)">
+            <summary>
+            根据好友数据显示动画
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMPFriend.DisplayMessage(VPet_Simulator.Windows.Interface.MPMessage.Chat)">
+            <summary>
+            显示好友之间聊天消息
+            </summary>
+            <param name="msg">聊天内容</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMPFriend.InConvenience">
+            <summary>
+            判断是否在忙碌 (被提起等, 不可进行互动)
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMPFriend.InConvenience(VPet_Simulator.Core.Main)">
+            <summary>
+            判断是否在忙碌 (被提起等, 不可进行互动)
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMPFriend.DisplayFoodAnimation(System.String,System.Windows.Media.ImageSource)">
+            <summary>
+            显示吃东西(夹层)动画
+            </summary>
+            <param name="graphName">夹层动画名</param>
+            <param name="imageSource">被夹在中间的图片</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPFriend.NOTouch">
+            <summary>
+            是否不允许交互
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.IMPWindows">
+            <summary>
+            多人联机窗口接口 (访客表)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPWindows.LobbyID">
+            <summary>
+            访客表id
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPWindows.Friends">
+            <summary>
+            所有好友(不包括自己)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPWindows.HostID">
+            <summary>
+            主持人SteamID
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPWindows.IsHost">
+            <summary>
+            当前玩家是否是主持人
+            </summary>
+        </member>
+        <member name="E:VPet_Simulator.Windows.Interface.IMPWindows.OnMemberLeave">
+            <summary>
+            事件:成员退出
+            </summary>
+        </member>
+        <member name="E:VPet_Simulator.Windows.Interface.IMPWindows.OnMemberJoined">
+            <summary>
+            事件:成员加入
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMPWindows.SendMessage(System.UInt64,VPet_Simulator.Windows.Interface.MPMessage)">
+            <summary>
+            给指定好友发送消息(数据包)
+            </summary>
+            <param name="friendid">好友id</param>
+            <param name="msg">消息内容(数据包)</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMPWindows.SendMessageALL(VPet_Simulator.Windows.Interface.MPMessage)">
+            <summary>
+            给所有人发送消息
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.IMPWindows.Log(System.String)">
+            <summary>
+            发送日志消息
+            </summary>
+            <param name="message">日志</param>
+        </member>
+        <member name="E:VPet_Simulator.Windows.Interface.IMPWindows.ReceivedMessage">
+            <summary>
+            收到消息日志 发送人id, 消息内容
+            </summary>
+        </member>
+        <member name="E:VPet_Simulator.Windows.Interface.IMPWindows.ClosingMutiPlayer">
+            <summary>
+            事件: 结束访客表, 窗口关闭
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPWindows.IsGameRunning">
+            <summary>
+            当前是否有游戏(其他mod的)正在进行 避免多个游戏同时进行而导致冲突
+            如果你的游戏开始了, 请请设置为true, 并在游戏结束后设置为false
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPWindows.TabControl">
+            <summary>
+            获取访客表菜单栏,可以插入自己的菜单
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IMPWindows.Joinable">
+            <summary>
+            是否可加入
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.MPMessage">
+            <summary>
+            多人模式传输的消息
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.MPMessage.MSGType">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MPMessage.MSGType.Empty">
+            <summary>
+            一般是出错或者空消息
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MPMessage.MSGType.Chat">
+            <summary>
+            聊天消息 (chat)
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MPMessage.MSGType.DispayGraph">
+            <summary>
+            显示动画 (graphinfo)
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MPMessage.MSGType.Interact">
+            <summary>
+            交互 (Interact)
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MPMessage.MSGType.Feed">
+            <summary>
+            喂食 (Feed)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.MPMessage.Type">
+            <summary>
+            消息类型 MOD作者可以随便抽个不是MSGTYPE的数避免冲突,支持负数
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.MPMessage.Content">
+            <summary>
+            消息内容
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.MPMessage.To">
+            <summary>
+            被操作者 (显示动画用)
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.MPMessage.SetContent(System.Object)">
+            <summary>
+            设置消息内容(类)
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.MPMessage.GetContent``1">
+            <summary>
+            获取消息内容(类)
+            </summary>
+            <typeparam name="T">类类型</typeparam>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.MPMessage.SetContent(System.String)">
+            <summary>
+            设置消息内容(字符串)
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.MPMessage.GetContent">
+            <summary>
+            获取消息内容(字符串)
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.MPMessage.Chat">
+            <summary>
+            聊天结构
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.MPMessage.Chat.Content">
+            <summary>
+            聊天内容
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.MPMessage.Chat.Type">
+            <summary>
+            消息类型
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MPMessage.Chat.Type.Private">
+            <summary>
+            私有
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MPMessage.Chat.Type.Internal">
+            <summary>
+            半公开
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MPMessage.Chat.Type.Public">
+            <summary>
+            公开
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.MPMessage.Chat.ChatType">
+            <summary>
+            聊天类型
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.MPMessage.Chat.SendName">
+            <summary>
+            发送者名字
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.MPMessage.Chat.ToName">
+            <summary>
+            接受者名字
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.MPMessage.Feed">
+            <summary>
+            交互结构
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.MPMessage.Feed.EnableFunction">
+            <summary>
+            对方是否启用了数据计算 (并且未丢失小标)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.MPMessage.Feed.Item">
+            <summary>
+            食物/物品
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.MPMessage.Interact">
+            <summary>
+            交互类型
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MPMessage.Interact.TouchHead">
+            <summary>
+            摸身体 
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MPMessage.Interact.TouchBody">
+            <summary>
+            摸头
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.MPMessage.Interact.TouchPinch">
+            <summary>
+            捏脸
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.Resources">
+            <summary>
+            资源集
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Resources.AddSource(LinePutScript.ILine,System.String)">
+            <summary>
+            添加资源,后来覆盖之前
+            </summary>
+            <param name="line">资源行</param>
+            <param name="modpath">功能位置</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Resources.AddSource(LinePutScript.ILine)">
+            <summary>
+            添加资源,后来覆盖之前
+            </summary>
+            <param name="line">资源行</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Resources.AddSources(LinePutScript.ILPS)">
+            <summary>
+            添加多个资源,后来覆盖之前
+            </summary>
+            <param name="lps">资源表</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Resources.AddSources(LinePutScript.ILPS,System.String)">
+            <summary>
+            添加多个资源,后来覆盖之前
+            </summary>
+            <param name="lps">资源表</param>
+            <param name="modpath">功能位置</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Resources.AddSource(System.String,System.String)">
+            <summary>
+            添加资源,后来覆盖之前的
+            </summary>
+            <param name="name">资源名字</param>
+            <param name="path">资源位置</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Resources.FindSource(System.String,System.String)">
+            <summary>
+            查找资源
+            </summary>
+            <param name="name">资源名称</param>
+            <param name="nofind">如果未找到,退回这个值</param>
+            <returns>返回资源位置,如果未找到,则退回nofind</returns>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Resources.FindSourceUri(System.String,System.String)">
+            <summary>
+            查找资源
+            </summary>
+            <param name="name">资源名称</param>
+            <param name="nofind">如果未找到,退回这个值</param>
+            <returns>返回资源位置,如果未找到,则退回nofind</returns>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ImageResources">
+            <summary>
+            图片资源集合
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ImageResources.AddImages(LinePutScript.LpsDocument,System.String)">
+            <summary>
+            添加图片集,后来覆盖之前
+            </summary>
+            <param name="lps">图片集</param>
+            <param name="modpath">文件夹位置</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ImageResources.AddImage(LinePutScript.ILine,System.String)">
+            <summary>
+            添加单个图片,后来覆盖之前
+            </summary>
+            <param name="line">图片行</param>
+            <param name="modpath">文件夹位置</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ImageResources.FindImage(System.String)">
+            <summary>
+            查找图片资源
+            </summary>
+            <param name="imagename">图片名称</param>
+            <returns>图片资源,如果未找到则退回错误提示图片</returns>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ImageResources.FindImage(System.String,System.String)">
+            <summary>
+            查找图片资源 如果找不到则使用上级
+            </summary>
+            <param name="imagename">图片名称</param>
+            <returns>图片资源,如果未找到则退回错误提示图片</returns>
+            <param name="superior">上级图片 如果没有专属的图片,则提供上级的图片</param>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.ImageResources.ImageSetting">
+            <summary>
+            图片设置 (eg:定位锚点等)
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ImageResources.NewSafeBitmapImage(System.String)">
+            <summary>
+            更加安全的图片URI加载
+            </summary>
+            <param name="source">图片源</param>
+            <returns>BitmapImage</returns>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ImageResources.NewSafeBitmapImage(System.Uri)">
+            <summary>
+            更加安全的图片URI加载
+            </summary>
+            <param name="source">图片源</param>
+            <returns>BitmapImage</returns>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ScheduleTask">
+            <summary>
+            日程表功能
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ScheduleTask.#ctor(VPet_Simulator.Windows.Interface.IMainWindow)">
+            <summary>
+            根据设置获取日程表
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ScheduleTask.StartWork">
+            <summary>
+            开始工作
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ScheduleTask.Start">
+            <summary>
+            开始日程表
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ScheduleTask.Stop">
+            <summary>
+            停止日程表
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ScheduleTask.AddWork(VPet_Simulator.Core.GraphHelper.Work,System.Int32)">
+            <summary>
+            添加工作到日程表
+            </summary>
+            <param name="work">工作</param>
+            <param name="dbl">倍率</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ScheduleTask.AddStudy(VPet_Simulator.Core.GraphHelper.Work,System.Int32)">
+            <summary>
+            添加学习到日程表
+            </summary>
+            <param name="work">工作</param>
+            <param name="dbl">倍率</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ScheduleTask.AddPlay(VPet_Simulator.Core.GraphHelper.Work,System.Int32)">
+            <summary>
+            添加游玩到日程表
+            </summary>
+            <param name="work">工作</param>
+            <param name="dbl">倍率</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ScheduleTask.AddRest(System.Int32)">
+            <summary>
+            添加休息到日程表
+            </summary>
+            <param name="restTime">休息时间</param>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ScheduleTask.ScheduleItemBase">
+            <summary>
+            日程表日程
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.ScheduleItemBase.RestTime">
+            <summary>
+            休息时间
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.ScheduleItemBase.WorkTime">
+            <summary>
+            工作时间
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.ScheduleItemBase.IsNow">
+            <summary>
+            是否是当前正在进行的日程
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ScheduleTask.WorkScheduleItem">
+            <summary>
+            工作日程表日程
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.WorkScheduleItem.DBL">
+            <summary>
+            翻倍倍率
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.WorkScheduleItem.Work">
+            <summary>
+            当前绑定工作
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ScheduleTask.StudyScheduleItem">
+            <summary>
+            学习日程表日程
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ScheduleTask.PlayScheduleItem">
+            <summary>
+            工作日程表日程
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ScheduleTask.RestScheduleItem">
+            <summary>
+            休息日程表日程
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.RestScheduleItem.RestTime">
+            <summary>
+            休息时间
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ScheduleTask.Package">
+            <summary>
+            套餐信息
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.Package.Name">
+            <summary>
+            套餐名称
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.Package.NameTrans">
+            <summary>
+            协议名称 (已翻译)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.Package.Describe">
+            <summary>
+            描述
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.Package.DescribeTrans">
+            <summary>
+            描述 已翻译
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.Package.Commissions">
+            <summary>
+            抽成
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.Package.Price">
+            <summary>
+            办理费用
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.Package.EndTime">
+            <summary>
+            截止时间
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.Package.AutoRenew">
+            <summary>
+            是否自动续费
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.Package.Level">
+            <summary>
+            可用等级
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ScheduleTask.Package.IsActive">
+            <summary>
+            是否生效
+            </summary>
+            <returns>判断套餐是否生效</returns>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.ScheduleTask.PackageFull">
+            <summary>
+            套餐详细
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.PackageFull.Duration">
+            <summary>
+            持续时间 (天)
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.PackageFull.LevelInNeed">
+            <summary>
+            等级需求
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ScheduleTask.PackageFull.WorkType">
+            <summary>
+            工作类型
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.Statistics">
+            <summary>
+            统计
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.Statistics.StatisticChangedEventHandler">
+            <summary>
+            统计变化通知事件
+            </summary>
+            <param name="sender">发送的统计(this)</param>
+            <param name="name">变动的名称</param>
+            <param name="value">变动的值</param>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.Statistics.Data">
+            <summary>
+            统计数据字典
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.Statistics.ToSubs">
+            <summary>
+            输出统计数据
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.TalkBox">
+            <summary>
+            聊天API接口/显示类
+            </summary>
+            <summary>
+            TalkBox
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.TalkBox.MainPlugin">
+            <summary>
+            插件主体
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.TalkBox.Responded(System.String)">
+            <summary>
+            根据内容进行回应 (异步)
+            </summary>
+            <param name="text">内容</param>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.TalkBox.APIName">
+            <summary>
+            该聊天接口名字
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.TalkBox.DisplayThink">
+            <summary>
+            显示思考动画
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.TalkBox.DisplayThinkToSayRnd(System.String,System.String)">
+            <summary>
+            显示思考结束并说话
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.TalkBox.DisplayThinkToSayRnd(VPet_Simulator.Core.SayInfoWithStream)">
+            <summary>
+            显示思考结束并说话 流式说话版本
+            </summary>
+            <param name="sayInfostream">说话信息</param>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.TalkBox.Setting">
+            <summary>
+            聊天设置
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.TalkBox.MainGrid">
+            <summary>
+            MainGrid Name Field
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.TalkBox.tbTalk">
+            <summary>
+            tbTalk Name Field
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.TalkBox.btnSend">
+            <summary>
+            btnSend Name Field
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.TalkBox.PublicGrid">
+            <summary>
+            PublicGrid Name Field
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.TalkBox.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ITalkAPI.This">
+            <summary>
+            显示的窗口
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.ITalkAPI.APIName">
+            <summary>
+            该聊天接口名字
+            </summary>
+        </member>
+        <member name="M:VPet_Simulator.Windows.Interface.ITalkAPI.Setting">
+            <summary>
+            聊天设置
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.Theme">
+            <summary>
+            游戏主题
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.Theme.TranslateName">
+            <summary>
+            名字 (翻译)
+            </summary>
+        </member>
+        <member name="T:VPet_Simulator.Windows.Interface.IFont">
+            <summary>
+            字体
+            </summary>
+        </member>
+        <member name="F:VPet_Simulator.Windows.Interface.IFont.Name">
+            <summary>
+            字体名字
+            </summary>
+        </member>
+        <member name="P:VPet_Simulator.Windows.Interface.IFont.TranslateName">
+            <summary>
+            名字 (翻译)
+            </summary>
+        </member>
+    </members>
+</doc>

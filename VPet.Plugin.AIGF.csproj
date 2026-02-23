@@ -1,0 +1,42 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\VPet-Simulator.Core\VPet-Simulator.Core.csproj" />
+    <ProjectReference Include="..\VPet-Simulator.Windows.Interface\VPet-Simulator.Windows.Interface.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Speech" Version="10.0.3" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="Whisper.net" Version="1.8.0" />
+    <PackageReference Include="Whisper.net.Runtime" Version="1.8.0" />
+  </ItemGroup>
+
+  <Target Name="CopyToMod" AfterTargets="Build">
+    <PropertyGroup>
+      <ModPluginDir>..\VPet-Simulator.Windows\mod\0000_core\plugin</ModPluginDir>
+      <!-- 主程序 bin 目录（.NET 运行时从这里解析原生 DLL） -->
+      <MainBinDir>..\VPet-Simulator.Windows\bin\x64\Debug\net8.0-windows</MainBinDir>
+    </PropertyGroup>
+    <!-- 托管 DLL -->
+    <Copy SourceFiles="$(OutputPath)VPet.Plugin.AIGF.dll" DestinationFolder="$(ModPluginDir)" SkipUnchangedFiles="false" ContinueOnError="true" />
+    <!-- load.lps（skip 规则） -->
+    <Copy SourceFiles="load.lps" DestinationFolder="$(ModPluginDir)" SkipUnchangedFiles="false" ContinueOnError="true" />
+    <!-- Whisper 原生运行时 DLL → mod/plugin 目录（供 plugin 加载时找到） -->
+    <ItemGroup>
+      <WhisperNativeDlls Include="$(OutputPath)runtimes\win-x64\*.dll" />
+    </ItemGroup>
+    <Copy SourceFiles="@(WhisperNativeDlls)" DestinationFolder="$(ModPluginDir)" SkipUnchangedFiles="false" ContinueOnError="true" />
+    <!-- Whisper 原生运行时 DLL → 主程序 runtimes\win-x64（.NET 原生库解析路径） -->
+    <MakeDir Directories="$(MainBinDir)\runtimes\win-x64" ContinueOnError="true" />
+    <Copy SourceFiles="@(WhisperNativeDlls)" DestinationFolder="$(MainBinDir)\runtimes\win-x64" SkipUnchangedFiles="false" ContinueOnError="true" />
+  </Target>
+
+</Project>

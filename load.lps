@@ -1,0 +1,4 @@
+﻿whisper.dll#:|skip#true:|
+ggml-whisper.dll#:|skip#true:|
+ggml-base-whisper.dll#:|skip#true:|
+ggml-cpu-whisper.dll#:|skip#true:|
