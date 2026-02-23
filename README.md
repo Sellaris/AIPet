@@ -115,6 +115,8 @@ dotnet build VPet.Plugin.AIGF.csproj -c Debug -p:Platform=x64
 ---
 
 ## ✨ 功能一览（她能做什么）
+### 自动弹窗与主动搭话
+插件加载后自动弹出聊天窗口（略有延迟等待主窗口就绪），主动搭话间隔 10~90 分钟，结合 RAG 上下文生成内容
 
 ###  智能对话：不再只有“预设台词”
 基于 GLM 的自然语言对话，你可以把她当作 AI 女朋友 / 室友 / 助理任意调教。  
@@ -168,7 +170,7 @@ dotnet build VPet.Plugin.AIGF.csproj -c Debug -p:Platform=x64
 
 ---
 
-## 主要改动说明
+## 开发者指南
 
 ### 1) RAG 向量检索
 
