@@ -359,12 +359,13 @@ VPet.Solution/Properties/launchSettings.json
 # ===== VPet-AIGF 运行期数据与本地模型（不建议纳入版本控制） =====
 
 # 插件自身运行期数据（聊天记录 / 向量索引 / 日志 / 配置 / 声纹）
-VPet-AIGF/chat_history.json
-VPet-AIGF/embeddings.json
-VPet-AIGF/debug_log.txt
-VPet-AIGF/api_call_log.txt
-VPet-AIGF/config.json
-VPet-AIGF/voiceprint.json
+# 插件自身运行期数据（聊天记录 / 向量索引 / 日志 / 配置 / 声纹）
+chat_history.json
+embeddings.json
+debug_log.txt
+api_call_log.txt
+config.json
+voiceprint.json
 
 # 已编译的 MOD 插件与其运行期数据
 VPet-Simulator.Windows/mod/0000_AIGF/
